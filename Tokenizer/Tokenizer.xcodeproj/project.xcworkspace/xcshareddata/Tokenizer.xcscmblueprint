@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++CF6C4FD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++CF6C4FD" : 0,
+    "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++33EE811" : 0,
+    "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++86B54AD" : 0,
+    "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++86FA870" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "42CD3052-9ECD-4BA8-BB49-74F7AB2111C8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++CF6C4FD" : "Tokenizer\/",
+    "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++33EE811" : "",
+    "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++86B54AD" : "CompArch\/Tokenizer\/",
+    "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++86FA870" : "CompArch\/Tokenizer\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Tokenizer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Tokenizer.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:avijeets\/CompArch.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++33EE811"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:avijeets\/CompArch.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++86B54AD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:avijeets\/CompArch.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++86FA870"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:avijeets\/CompArch.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9176CDEC713D7A315F42C3CEC2760C5FCAE48815+++CF6C4FD"
+    }
+  ]
+}

@@ -93,6 +93,9 @@
 		8ABFCC161D26F39400AF38EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Avijeet Sachdev";
 				TargetAttributes = {
@@ -245,6 +248,7 @@
 				8ABFCC271D26F39400AF38EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
