@@ -14,7 +14,7 @@
 
 int main(int argc, char ** argv){
     /*check the argument*/
-    
+    printf("hallo");
     
     /*call TKCreate() with the filename*/
     

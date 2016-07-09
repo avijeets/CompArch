@@ -20,7 +20,7 @@
 /* change the 'return NULL' after you finished the code */
 /* functions specifications are in tokenizer.h */
 
-void dummyFunc(){
+int main(){
     printf("I succesfully write a makefile\n");
 }
 
@@ -83,7 +83,6 @@ char *TKGetNextToken(char * start) {
 }
 
 void TKPrint(TokenizerT *tk){
-    /* fill in your code here */
 }
  /*
 int state_octal(int index, TokenizerT* tk){ //keeps going until it encounters a non-digit, non-octal character
