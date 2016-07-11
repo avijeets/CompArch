@@ -28,7 +28,7 @@ void dummyFunc();
 typedef struct Tokens_LL {
     char *token;
     char *type;
-    struct Node *next;
+    struct Tokens_LL *next;
 } Node;
 
 typedef struct TokenizerT_ {

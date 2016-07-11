@@ -7,18 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A07B6841D31CC8400F811BD /* tokenizer.h in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFCC281D26F62200AF38EC /* tokenizer.h */; };
 		8ABFCC221D26F39400AF38EC /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFCC211D26F39400AF38EC /* main.c */; };
 		8ABFCC2A1D26F65300AF38EC /* tokenizer.c in Sources */ = {isa = PBXBuildFile; fileRef = 8ABFCC291D26F65300AF38EC /* tokenizer.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8ABFCC1C1D26F39400AF38EC /* CopyFiles */ = {
+		8ABFCC1C1D26F39400AF38EC /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -76,7 +78,7 @@
 			buildPhases = (
 				8ABFCC1A1D26F39400AF38EC /* Sources */,
 				8ABFCC1B1D26F39400AF38EC /* Frameworks */,
-				8ABFCC1C1D26F39400AF38EC /* CopyFiles */,
+				8ABFCC1C1D26F39400AF38EC /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -93,9 +95,6 @@
 		8ABFCC161D26F39400AF38EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				KnownAssetTags = (
-					New,
-				);
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Avijeet Sachdev";
 				TargetAttributes = {
@@ -126,6 +125,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A07B6841D31CC8400F811BD /* tokenizer.h in Sources */,
 				8ABFCC221D26F39400AF38EC /* main.c in Sources */,
 				8ABFCC2A1D26F65300AF38EC /* tokenizer.c in Sources */,
 			);

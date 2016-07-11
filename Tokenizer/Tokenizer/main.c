@@ -14,10 +14,10 @@
 
 int main(int argc, char ** argv){
     /*check the argument*/
-    printf("hallo");
+    printf("Reading the FILE %s\n", argv[1]);
     
     /*call TKCreate() with the filename*/
-    
+    TKCreate(argv[1]);
     
     /*call TKPrint() with the returned object and print out the result + error message*/
     

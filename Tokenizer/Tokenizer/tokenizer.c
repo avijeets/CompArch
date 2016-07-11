@@ -17,10 +17,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* change the 'return NULL' after you finished the code */
-/* functions specifications are in tokenizer.h */
+// change the 'return NULL' after you finished the code 
+// functions specifications are in tokenizer.h 
 
-int main(){
+void dummyFunc(){
     printf("I succesfully write a makefile\n");
 }
 
@@ -30,14 +30,17 @@ TokenizerT *TKCreate(char * ts){
     tk->tail = (Node *)malloc(sizeof(Node));
     
     FILE *infile = fopen(ts, ("r"));
-    char *c = (char *)malloc(sizeof(char));
-    char *p = (char *)malloc(sizeof(char));
-    while(fgets(c, 50, infile)) {
+    char *line = (char *)malloc(50);
+    char *p, *currentToken;
+    while(fgets(line, 50, infile)) {
         while(strlen(p) >= 1) {
-            while (*p == ' ') {
+            while (*p == ' ' || *p == '\n') {
+                if (strlen(p) == 1)
+                    break;
                 p++;
             }
-            TKGetNextToken(p);
+            currentToken = TKGetNextToken(p);
+            p+=strlen(currentToken);
         }
     }
     
@@ -56,10 +59,10 @@ void TKDestroy( TokenizerT * tk ) {
     /* fill in your code here */
 }
 
-char *TKGetNextToken(char * start) {
+char *TKGetNextToken( char * start ) {
     char* check = start;
     char *startPtr = start;
-    int* end;
+    char* end = NULL;
     int length = 1;
     char *token;
     while (*check == ' '){
@@ -68,17 +71,17 @@ char *TKGetNextToken(char * start) {
         }
         check++;
     }
-    //end = check;
+    startPtr= check;
     while (*check != ' '){
         if(strlen(startPtr) == 1){
             length++;
             break;
         }
-        end++;
+        check++;
         length++;
     }
     token = malloc(length+1);
-    strncpy(check, token, length);
+    strncpy(token, startPtr, length);
     return token;
 }
 
