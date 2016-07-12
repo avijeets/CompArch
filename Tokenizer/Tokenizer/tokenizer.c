@@ -23,7 +23,9 @@
 void dummyFunc(){
     printf("I succesfully write a makefile\n");
 }
-
+char* getType(char * tokenType) {
+    if (tokenType )
+}
 TokenizerT *TKCreate(char * ts){
     TokenizerT *tk = malloc(sizeof(TokenizerT));
     tk->head = (Node *)malloc(sizeof(Node));
@@ -40,7 +42,22 @@ TokenizerT *TKCreate(char * ts){
                 p++;
             }
             currentToken = TKGetNextToken(p);
-            p+=strlen(currentToken);
+            p += strlen(currentToken);
+            struct Tokens_LL *temp;
+            temp = (struct Tokens_LL*)malloc(sizeof(struct Tokens_LL));
+            temp->token = currentToken;
+            temp->type = getType(currentToken);
+            if (tk->head == NULL){
+                tk->head = temp;
+            }
+            else if (tk->tail == NULL) {
+                tk->head->next = temp;
+                tk->tail = temp;
+            }
+            else {
+                tk->tail->next = temp;
+                tk->tail = temp;
+            }
         }
     }
     
@@ -56,7 +73,6 @@ TokenizerT *TKCreate(char * ts){
     return NULL;
 }
 void TKDestroy( TokenizerT * tk ) {
-    /* fill in your code here */
 }
 
 char *TKGetNextToken( char * start ) {
