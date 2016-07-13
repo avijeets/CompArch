@@ -20,35 +20,9 @@
 // change the 'return NULL' after you finished the code 
 // functions specifications are in tokenizer.h 
 
-/*1 if check passes, 0 if not */
-int isOctal(char* exp){
-    int i;
-    long len;
-    len = strlen(exp);
-    if (len >= 2) {
-        for (i = 0; i < len; i++){
-            if (exp[i] == '8' || exp[i] == '9'){
-                return 0;
-            }
-        }
-        return 1;
-    }
-    return 0;
-}
-int isFloat(char* exp){
-        if (exp[1] == '.'){
-            return 1; //. or e
-        }
-    return 0;
-}
-int isHex(char* exp){
-    if (strlen(exp) >= 2){
-        if (exp[1] == 'x' || exp[1] == 'X') { // check strlen, if 1, don't allocate memory, if not digit, error
-            return 1;
-        }
-    }
-    return 0;
-}
+/*  Checks for data types:s
+    1 if check passes, 0 if not 
+*/
 int isDigit(char* exp){
     if (*exp < '0' && *exp > '9') {
         return 0;
@@ -57,15 +31,49 @@ int isDigit(char* exp){
         return 1;
     }
 }
+int isOctal(char* exp){
+    int i;
+    long len;
+    len = strlen(exp);
+    for (i = 0; i < len; i++){
+        //first digit is 0, no digits then flase
+        if (exp[0] == '0'){
+            if (isDigit(exp) == 1){
+                return 1;
+            }
+            else {
+                return 0;
+            }
+        }
+    }
+    return 1;
+}
+int isFloat(char* exp){
+    char *expPtr = exp;
+    if (strchr(expPtr, 'e') || strchr(expPtr, '.' ) || strchr(expPtr, 'E')) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+int isHex(char* exp){
+    if (exp[1] == 'x' || exp[1] == 'X') {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
 
 char* getType(char* tokenType) {
-    //float
-    if (strlen(tokenType) >= 2){
-        if (isFloat(tokenType)==1) { // error check strlen now?
+    if (strlen(tokenType) >= 2){ // for efficiency's sake, ask for strlen now and use it for determining type
+        //float
+        if (isFloat(tokenType)==1){
             return "float";
         }
         //hex
-        if (isHex(tokenType)==1){
+        if (isHex(tokenType)==1) {
             return "hex";
         }
         //octal
@@ -86,6 +94,7 @@ TokenizerT *TKCreate(char * ts){
     //keeps track of head and tail of Linked List
     tk->head = (Node *)malloc(sizeof(Node));
     tk->tail = (Node *)malloc(sizeof(Node));
+    
     //opens file
     FILE *infile = fopen(ts, "r");
     char *line = (char *)malloc(50); // each line can only have maximum length of 50 characters
@@ -103,7 +112,7 @@ TokenizerT *TKCreate(char * ts){
             struct Tokens_LL *temp; //new node called temp
             temp = (struct Tokens_LL*)malloc(sizeof(struct Tokens_LL)); // allocating memory for node
             temp->token = currentToken; // data of node is currentToken
-            //temp->type = getType(currentToken); //gets type: floating-point constant, integer constant in hex, decimal or octal
+            temp->type = getType(currentToken); //gets type: floating-point constant, integer constant in hex, decimal or octal
             if (tk->head == NULL){
                 tk->head = temp; // if no nodes, temp is new head
             }
@@ -158,4 +167,24 @@ char *TKGetNextToken( char * start ) {
 }
 
 void TKPrint(TokenizerT *tk){
+    FILE *yes, *no;
+    
+    yes = fopen("results", "w"); // results file, everything working
+    no = fopen("error.msg", "w"); //error file, things didn't work out
+    
+    struct Tokens_LL *trav; // new LL node
+    trav = tk->head; //node is at the head of the linked list
+    
+    while(trav != NULL){
+        if(*trav->token == 'e'){
+            fprintf(no, "[0X%s]\n", trav->token);
+        }
+        else {
+            fprintf(yes, "%s %s\n", trav->type, trav->token);
+        }
+        trav = trav->next;
+    }
+    
+    fclose(yes); //everything done, close file
+    fclose(no); //everything done, close file
 }

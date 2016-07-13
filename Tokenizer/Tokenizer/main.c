@@ -22,7 +22,7 @@ int main(int argc, char ** argv){
     /*call TKPrint() with the returned object and print out the result + error message*/
     
     /*destroy all the dynamically allocated memory*/
-    dummyFunc();
+    
     
     return 0;
 }
