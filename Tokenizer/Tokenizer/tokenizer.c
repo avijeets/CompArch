@@ -20,43 +20,100 @@
 // change the 'return NULL' after you finished the code 
 // functions specifications are in tokenizer.h 
 
-void dummyFunc(){
-    printf("I succesfully write a makefile\n");
+/*1 if check passes, 0 if not */
+int isOctal(char* exp){
+    int i;
+    long len;
+    len = strlen(exp);
+    if (len >= 2) {
+        for (i = 0; i < len; i++){
+            if (exp[i] == '8' || exp[i] == '9'){
+                return 0;
+            }
+        }
+        return 1;
+    }
+    return 0;
 }
-char* getType(char * tokenType) {
-    if (tokenType )
+int isFloat(char* exp){
+        if (exp[1] == '.'){
+            return 1; //. or e
+        }
+    return 0;
 }
+int isHex(char* exp){
+    if (strlen(exp) >= 2){
+        if (exp[1] == 'x' || exp[1] == 'X') { // check strlen, if 1, don't allocate memory, if not digit, error
+            return 1;
+        }
+    }
+    return 0;
+}
+int isDigit(char* exp){
+    if (*exp < '0' && *exp > '9') {
+        return 0;
+    }
+    else {
+        return 1;
+    }
+}
+
+char* getType(char* tokenType) {
+    //float
+    if (strlen(tokenType) >= 2){
+        if (isFloat(tokenType)==1) { // error check strlen now?
+            return "float";
+        }
+        //hex
+        if (isHex(tokenType)==1){
+            return "hex";
+        }
+        //octal
+        if (isOctal(tokenType)==1){
+            return "octal";
+        }
+    }
+    else {
+        if(isDigit(tokenType)==1) {
+            return "decimal";
+        }
+    }
+    return "ERROR";
+}
+
 TokenizerT *TKCreate(char * ts){
     TokenizerT *tk = malloc(sizeof(TokenizerT));
+    //keeps track of head and tail of Linked List
     tk->head = (Node *)malloc(sizeof(Node));
     tk->tail = (Node *)malloc(sizeof(Node));
-    
-    FILE *infile = fopen(ts, ("r"));
-    char *line = (char *)malloc(50);
-    char *p, *currentToken;
+    //opens file
+    FILE *infile = fopen(ts, "r");
+    char *line = (char *)malloc(50); // each line can only have maximum length of 50 characters
+    char *p = line; //p represents string
+    char *currentToken; //currentToken represents p called on TKGetNextToken
     while(fgets(line, 50, infile)) {
-        while(strlen(p) >= 1) {
-            while (*p == ' ' || *p == '\n') {
+        while(strlen(p) > 0) { //applicable length
+            while (*p == ' ' || *p == '\n') { //whitespace or \newline
                 if (strlen(p) == 1)
-                    break;
-                p++;
+                    break; // p can't be that short
+                p++; // if it's applicable length, keep traversing
             }
             currentToken = TKGetNextToken(p);
-            p += strlen(currentToken);
-            struct Tokens_LL *temp;
-            temp = (struct Tokens_LL*)malloc(sizeof(struct Tokens_LL));
-            temp->token = currentToken;
-            temp->type = getType(currentToken);
+            p += strlen(currentToken); // p, the index, goes to the next whitespace (end of currentToken length)
+            struct Tokens_LL *temp; //new node called temp
+            temp = (struct Tokens_LL*)malloc(sizeof(struct Tokens_LL)); // allocating memory for node
+            temp->token = currentToken; // data of node is currentToken
+            //temp->type = getType(currentToken); //gets type: floating-point constant, integer constant in hex, decimal or octal
             if (tk->head == NULL){
-                tk->head = temp;
+                tk->head = temp; // if no nodes, temp is new head
             }
             else if (tk->tail == NULL) {
-                tk->head->next = temp;
-                tk->tail = temp;
+                tk->head->next = temp; //if no tail, temp is added to the end
+                tk->tail = temp; // temp is new tail
             }
             else {
-                tk->tail->next = temp;
-                tk->tail = temp;
+                tk->tail->next = temp; // add temp to end
+                tk->tail = temp; // temp is new tail
             }
         }
     }
@@ -76,64 +133,29 @@ void TKDestroy( TokenizerT * tk ) {
 }
 
 char *TKGetNextToken( char * start ) {
-    char* check = start;
-    char *startPtr = start;
-    char* end = NULL;
+    char* check = start; // new string check
+    char *startPtr = start; //pointer for called string
     int length = 1;
     char *token;
     while (*check == ' '){
-        if (strlen(startPtr) == 1){
+        if (strlen(startPtr) == 1){ //has to be applicable length
             return NULL;
         }
-        check++;
+        check++; //keep traversing if applicable length
     }
-    startPtr= check;
-    while (*check != ' '){
+    startPtr = check; //pointer now matches value of check string
+    while (*check != ' '){ // not whitespace
         if(strlen(startPtr) == 1){
-            length++;
+            length++; // not applicable length, move on
             break;
         }
-        check++;
-        length++;
+        length++; //length of string goes up
+        check++; //keep traversing
     }
     token = malloc(length+1);
-    strncpy(token, startPtr, length);
+    strncpy(token, startPtr, length); //token is destination, startPtr is string to be copied, length is # of copies to be stored
     return token;
 }
 
 void TKPrint(TokenizerT *tk){
 }
- /*
-int state_octal(int index, TokenizerT* tk){ //keeps going until it encounters a non-digit, non-octal character
-    if(isdigit(tk->currchar[index])){
-        if(tk->currchar[index] != '8' && tk->currchar[index] != '9'){
-            return state_octal(index+1, tk);
-        }
-        else {
-            tk->tokentype = badinput;
-            return index;
-        }
-    }
-    else {
-        return index;
-    }
-}
-
-int state_hex(int index, TokenizerT* tk) { //keeps going until it finds something that isn't 0-9,a-f, A-F.
-    if(isxdigit(tk->currchar[index])) { //isxdigit(int) tells me if the character is a hexidecimal or not.
-        return state_hex(index+1, tk);
-    }
-    else {
-        return index;
-    }
-}
-int state_float(int index, TokenizerT* tk) { //prereq: previous character was a '+' or '-' sign.
-    if(isdigit(tk->currchar[index])) {
-        return state_float(index+1, tk);
-    }
-    else {
-        tk->tokentype = floatnum;
-        return index;
-    }
-}
-*/
