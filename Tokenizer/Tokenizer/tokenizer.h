@@ -24,7 +24,7 @@
  */
 
 typedef struct Tokens_LL {
-    char *token;
+    char *data;
     char *type;
     struct Tokens_LL *next;
 } Node;
