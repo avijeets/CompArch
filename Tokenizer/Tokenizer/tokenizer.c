@@ -146,9 +146,10 @@ TokenizerT *TKCreate(char * ts){
     //opens file
     FILE *new = fopen(ts, "r");
     char *line = (char *)malloc(50); // each line can only have maximum length of 50 characters
-    char *p = line; //p represents string
+    char *p; //p represents string
     char *currentToken; //currentToken represents p called on TKGetNextToken
-    while(fgets(line, 50, new)) {
+    while(fgets(line, 50, new) != NULL) {
+        p = line;
         while(strlen(p) > 0) { //applicable length
             while (*p == ' ' || *p == '\n') { //whitespace or \newline
                 if (strlen(p) == 1)
@@ -173,7 +174,9 @@ TokenizerT *TKCreate(char * ts){
                 tk->tail = temp; // temp is new tail
             }
         }
-    }fclose(new);//efficiency
+    }
+    free(line);
+    fclose(new);//efficiency
     return tk;
 }
 void TKDestroy( TokenizerT * tk ) {
@@ -196,11 +199,11 @@ void TKPrint(TokenizerT *tk){
     yes = fopen("result", "w"); // results file, everything working. writing.
     no = fopen("error.msg", "w"); //error file, things didn't work out. writing.
     while(trav != NULL){
-        if(*(trav->type) != 'E' || *(trav->type) != 'e'){
-            fprintf(yes, "%s %s\n", trav->type, trav->data);
+        if(*(trav->type) == 'E'){ // looks for ERROR
+            fprintf(no, "[0X%x]\n", *(trav->data)); // appending to error.msg
         }
         else {
-            fprintf(no, "[0X%x]\n", *(trav->data));
+            fprintf(yes, "%s %s\n", trav->type, trav->data); //appending to result
         }
         trav = trav->next;
     }
