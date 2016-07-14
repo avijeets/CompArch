@@ -13,16 +13,19 @@
  */
 
 int main(int argc, char ** argv){
-    /*check the argument*/
-    printf("Reading the FILE %s\n", argv[1]);
-    
     /*call TKCreate() with the filename*/
-    TKCreate(argv[1]);
+    TokenizerT *tokenizer = TKCreate(argv[1]);
     
+    /*check the argument*/
+    if (tokenizer == NULL){
+        printf("Problem with input. Exiting program.");
+        return 0;
+    }
+
     /*call TKPrint() with the returned object and print out the result + error message*/
-    
+    TKPrint(tokenizer);
     /*destroy all the dynamically allocated memory*/
-    
+    TKDestroy(tokenizer);
     
     return 0;
 }
