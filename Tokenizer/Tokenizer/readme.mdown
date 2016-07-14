@@ -1,0 +1,11 @@
+#Tokenizer: PA1
+
+###Description
+- This program accepts strings, which contains a file name, as a command-line argument. The file name contains one or more tokens of type floating-point, constant, or integer constant in hex/decimal/octal form.
+- The tokenizer methods then returns the tokens in the command-line argument one at a time.
+
+###Algorithm
+- After a string is accepted from the command line, it does four things. Firstly, it checks the arguments with the filename, by making sure the TokenizerT object has a value. If it’s NULL, it will return and exit the program.
+- Afterwards, the method calls TKCreate() where the bulk of the logic is found. Firstly, it creates the Tokenizer_LL Linked List (defined in the header file), and keeps track of the head and the tail positions. The tokens file is opened and the next token is returned from TKGetNextToken() where the method traverses through the input, ignores whitespace, and gets every token from the given file. From there, TKCreate() traverses the line, makes sure the length of the line is positive, and avoids whitespace. While doing those tasks in while loops, it constantly traverses through the string while adding the tokens to the Tokenizer_LL Linked List. Once it’s at the stage of being added to the Linked List, the program does checks for where the data should go and what the head and tail should be considered after insertion. Once done, the file is closed, and the brought-in tk is returned.
+- Aside from the logic understood from TKCreate() and its helper methods, there are two methods that print the results and errors to the results and error.msg files, respectively.
+- As well, the code written tries to be as efficient as possible by reducing amounts of method calls where not needed, closing files once done, and destroying all allocated memory in TKDestroy() once done.
