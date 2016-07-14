@@ -17,12 +17,12 @@
 #include <stdlib.h>
 #include <string.h>
 
-// change the 'return NULL' after you finished the code 
-// functions specifications are in tokenizer.h 
+// change the 'return NULL' after you finished the code
+// functions specifications are in tokenizer.h
 
 /*  Checks for data types:s
-    1 if check passes, 0 if not 
-*/
+ 1 if check passes, 0 if not
+ */
 int isDigit(char exp){
     if (exp < '0') {
         return 0;
@@ -53,7 +53,7 @@ int isOctal(char* exp){
             else {
                 return 0;
             }
-
+            
         }
     }
     return 1;
@@ -82,36 +82,29 @@ int isHex(char* exp){
 }
 
 char* getType(char* tokenType) {
-    char* type;
     if (strlen(tokenType) >= 2){ // for efficiency's sake, ask for strlen now and use it for determining type
         //float
         if (isFloat(tokenType)==1){
-            type = "float";
-            return type;
+            return "float";
         }
         //hex
         if (isHex(tokenType)==1) {
-            type = "hex";
-            return type;
+            return "hex";
         }
         //octal
         if (isOctal(tokenType)==1){
-            type = "octal";
-            return type;
+            return "octal";
         }
         if(isDigit(*tokenType)==1) {
-            type = "decimal";
-            return type;
+            return "decimal";
         }
     }
     else {
         if(isDigit(*tokenType)==1) { // same check and method call for if strlen(tokenType) is under 2
-            type = "decimal";
-            return type; //strlen(tokenType) can be any value, so called in both conditions
+            return "decimal"; //strlen(tokenType) can be any value, so called in both conditions
         }
     }
-    type = "ERROR"; // no cases matched
-    return type;
+    return "ERROR";// no cases matched
 }
 char *TKGetNextToken( char * start ) {
     char* check = start; // new string check
@@ -151,7 +144,7 @@ TokenizerT *TKCreate(char * ts){
     while(fgets(line, 50, new) != NULL) {
         p = line;
         while(strlen(p) > 0) { //applicable length
-            while (*p == ' ' || *p == '\n') { //whitespace or \newline
+            while (*p == ' ') { //whitespace
                 if (strlen(p) == 1)
                     break; // p can't be that short
                 p++; // if it's applicable length, keep traversing
@@ -184,7 +177,6 @@ void TKDestroy( TokenizerT * tk ) {
     ll = tk->head;
     while(ll!=NULL){ //iterates with LL and frees all dynamically allocated memory
         trav = ll->next; //goes to next node with trav
-        free(ll->data); //frees the token (data of LL)
         free(ll); // frees all of LL
         ll = trav; //equal so loop can iterate again
     }
@@ -196,11 +188,11 @@ void TKPrint(TokenizerT *tk){
     FILE *yes;
     FILE *no;
     trav = tk->head; //node is at the head of the linked list
-    yes = fopen("result", "w"); // results file, everything working. writing.
-    no = fopen("error.msg", "w"); //error file, things didn't work out. writing.
+    yes = fopen("result", "w+"); // results file, everything working. writing.
+    no = fopen("error.msg", "w+"); //error file, things didn't work out. writing.
     while(trav != NULL){
         if(*(trav->type) == 'E'){ // looks for ERROR
-            fprintf(no, "[0X%x]\n", *(trav->data)); // appending to error.msg
+            fprintf(no, "[0X%x]\n", *(trav->data)); // appending to error.msg 
         }
         else {
             fprintf(yes, "%s %s\n", trav->type, trav->data); //appending to result

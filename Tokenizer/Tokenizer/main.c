@@ -13,9 +13,10 @@
  */
 
 int main(int argc, char ** argv){
+
     /*call TKCreate() with the filename*/
     TokenizerT *tokenizer = TKCreate(argv[1]);
-    
+
     /*check the argument*/
     if (tokenizer == NULL){
         printf("Problem with input. Exiting program.");
