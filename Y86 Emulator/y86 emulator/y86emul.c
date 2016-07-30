@@ -25,6 +25,7 @@ void rrmovl() {
         exit(0);
     }
     eip++;
+    // TODO: WORK ON EC printf("rrmovl reg[%x], reg[%x] , new->low, new->high");
 	return;
 }
 
@@ -49,19 +50,52 @@ void irmovl() {
    
 /*Performs a registry to memory move*/
 void rmmovl() {
-	/**** fill your code here ****/
-
-
-
+    eip++;
+    bitfield *new = (bitfield *)(emem + eip);
+    int *num = (int *)(emem + eip + 1);
+    int lower, higher;
+    int adr, topReg, botReg;
+    
+    lower = new->low;
+    higher = new->high;
+    
+    if ((lower >= 0 && lower <= 7) && (higher >= 0 && higher <= 7)) {
+        topReg = reg[higher];
+        botReg = reg[lower];
+        adr = topReg + *num;
+        int *memArrAddress = (int *)(adr + emem);
+        *memArrAddress = botReg;
+    }
+    else {
+        fprintf(stderr,"Not valid register.\n");
+        exit(0);
+    }
+    eip += 5;
 	return;
 }
 
 /*Performs a memory to registry move*/
 void mrmovl() {
-	/**** fill your code here ****/
-
-
-
+    eip++;
+    bitfield *new = (bitfield *)(emem + eip);
+    int *num = (int *)(emem + eip + 1);
+    int lower, higher;
+    
+    lower = new->low;
+    higher = new->high;
+    
+    int adr, topReg;
+    if ((lower >= 0 && lower <= 7) && (higher >= 0 && higher <= 7)) {
+        topReg = reg[higher];
+        adr = topReg + *num;
+        int *memArrAddress = (int *)(adr + emem);
+        reg[lower] = *memArrAddress;
+    }
+    else {
+        fprintf(stderr,"Not valid register.\n");
+        exit(0);
+    }
+    eip += 5;
 	return;
 }
 
@@ -69,7 +103,11 @@ void mrmovl() {
  * can be addition, subtraction, multiplication
  * bitwise and or exclusive or */
  void op1() {
-	/**** fill your code here ****/
+     eip++;
+     bitfield *new = (bitfield *)(emem + eip);
+     int lower, higher;
+     higher = new->high;
+     lower = new->low;
 
 
 
