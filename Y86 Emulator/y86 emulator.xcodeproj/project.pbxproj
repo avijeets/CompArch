@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8AFF77C61D494E1E00333B5F /* y86emul.c in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF77C51D494E1E00333B5F /* y86emul.c */; };
+		8AFF77DF1D494F5F00333B5F /* y86emul.c in Sources */ = {isa = PBXBuildFile; fileRef = 8AFF77DD1D494F5F00333B5F /* y86emul.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8AFF77B71D494DD500333B5F /* CopyFiles */ = {
+		8AFF77CF1D494F4F00333B5F /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,15 +23,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8AFF77B91D494DD600333B5F /* y86 emulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "y86 emulator"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8AFF77C31D494DF700333B5F /* prog1.y86 */ = {isa = PBXFileReference; lastKnownFileType = text; path = prog1.y86; sourceTree = "<group>"; };
-		8AFF77C41D494E1000333B5F /* prog2.y86 */ = {isa = PBXFileReference; lastKnownFileType = text; path = prog2.y86; sourceTree = "<group>"; };
-		8AFF77C51D494E1E00333B5F /* y86emul.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = y86emul.c; sourceTree = "<group>"; };
-		8AFF77C71D494E2500333B5F /* y86emul.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = y86emul.h; sourceTree = "<group>"; };
+		8AFF77D11D494F4F00333B5F /* Y86 Emulator */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Y86 Emulator"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AFF77DB1D494F5F00333B5F /* prog1.y86 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prog1.y86; sourceTree = "<group>"; };
+		8AFF77DC1D494F5F00333B5F /* prog2.y86 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prog2.y86; sourceTree = "<group>"; };
+		8AFF77DD1D494F5F00333B5F /* y86emul.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = y86emul.c; sourceTree = "<group>"; };
+		8AFF77DE1D494F5F00333B5F /* y86emul.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = y86emul.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8AFF77B61D494DD500333B5F /* Frameworks */ = {
+		8AFF77CE1D494F4F00333B5F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,97 +41,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8AFF77B01D494DD500333B5F = {
+		8AFF77C81D494F4F00333B5F = {
 			isa = PBXGroup;
 			children = (
-				8AFF77BB1D494DD600333B5F /* y86 emulator */,
-				8AFF77BA1D494DD600333B5F /* Products */,
+				8AFF77D31D494F4F00333B5F /* Y86 Emulator */,
+				8AFF77D21D494F4F00333B5F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		8AFF77BA1D494DD600333B5F /* Products */ = {
+		8AFF77D21D494F4F00333B5F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8AFF77B91D494DD600333B5F /* y86 emulator */,
+				8AFF77D11D494F4F00333B5F /* Y86 Emulator */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8AFF77BB1D494DD600333B5F /* y86 emulator */ = {
+		8AFF77D31D494F4F00333B5F /* Y86 Emulator */ = {
 			isa = PBXGroup;
 			children = (
-				8AFF77C31D494DF700333B5F /* prog1.y86 */,
-				8AFF77C41D494E1000333B5F /* prog2.y86 */,
-				8AFF77C71D494E2500333B5F /* y86emul.h */,
-				8AFF77C51D494E1E00333B5F /* y86emul.c */,
+				8AFF77DB1D494F5F00333B5F /* prog1.y86 */,
+				8AFF77DC1D494F5F00333B5F /* prog2.y86 */,
+				8AFF77DD1D494F5F00333B5F /* y86emul.c */,
+				8AFF77DE1D494F5F00333B5F /* y86emul.h */,
 			);
-			path = "y86 emulator";
+			path = "Y86 Emulator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8AFF77B81D494DD500333B5F /* y86 emulator */ = {
+		8AFF77D01D494F4F00333B5F /* Y86 Emulator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8AFF77C01D494DD600333B5F /* Build configuration list for PBXNativeTarget "y86 emulator" */;
+			buildConfigurationList = 8AFF77D81D494F4F00333B5F /* Build configuration list for PBXNativeTarget "Y86 Emulator" */;
 			buildPhases = (
-				8AFF77B51D494DD500333B5F /* Sources */,
-				8AFF77B61D494DD500333B5F /* Frameworks */,
-				8AFF77B71D494DD500333B5F /* CopyFiles */,
+				8AFF77CD1D494F4F00333B5F /* Sources */,
+				8AFF77CE1D494F4F00333B5F /* Frameworks */,
+				8AFF77CF1D494F4F00333B5F /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "y86 emulator";
-			productName = "y86 emulator";
-			productReference = 8AFF77B91D494DD600333B5F /* y86 emulator */;
+			name = "Y86 Emulator";
+			productName = "Y86 Emulator";
+			productReference = 8AFF77D11D494F4F00333B5F /* Y86 Emulator */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		8AFF77B11D494DD500333B5F /* Project object */ = {
+		8AFF77C91D494F4F00333B5F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Avijeet Sachdev";
 				TargetAttributes = {
-					8AFF77B81D494DD500333B5F = {
+					8AFF77D01D494F4F00333B5F = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
 			};
-			buildConfigurationList = 8AFF77B41D494DD500333B5F /* Build configuration list for PBXProject "y86 emulator" */;
+			buildConfigurationList = 8AFF77CC1D494F4F00333B5F /* Build configuration list for PBXProject "Y86 Emulator" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 8AFF77B01D494DD500333B5F;
-			productRefGroup = 8AFF77BA1D494DD600333B5F /* Products */;
+			mainGroup = 8AFF77C81D494F4F00333B5F;
+			productRefGroup = 8AFF77D21D494F4F00333B5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8AFF77B81D494DD500333B5F /* y86 emulator */,
+				8AFF77D01D494F4F00333B5F /* Y86 Emulator */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8AFF77B51D494DD500333B5F /* Sources */ = {
+		8AFF77CD1D494F4F00333B5F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8AFF77C61D494E1E00333B5F /* y86emul.c in Sources */,
+				8AFF77DF1D494F5F00333B5F /* y86emul.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		8AFF77BE1D494DD600333B5F /* Debug */ = {
+		8AFF77D61D494F4F00333B5F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -175,7 +175,7 @@
 			};
 			name = Debug;
 		};
-		8AFF77BF1D494DD600333B5F /* Release */ = {
+		8AFF77D71D494F4F00333B5F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -212,14 +212,14 @@
 			};
 			name = Release;
 		};
-		8AFF77C11D494DD600333B5F /* Debug */ = {
+		8AFF77D91D494F4F00333B5F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		8AFF77C21D494DD600333B5F /* Release */ = {
+		8AFF77DA1D494F4F00333B5F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -229,24 +229,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8AFF77B41D494DD500333B5F /* Build configuration list for PBXProject "y86 emulator" */ = {
+		8AFF77CC1D494F4F00333B5F /* Build configuration list for PBXProject "Y86 Emulator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8AFF77BE1D494DD600333B5F /* Debug */,
-				8AFF77BF1D494DD600333B5F /* Release */,
+				8AFF77D61D494F4F00333B5F /* Debug */,
+				8AFF77D71D494F4F00333B5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8AFF77C01D494DD600333B5F /* Build configuration list for PBXNativeTarget "y86 emulator" */ = {
+		8AFF77D81D494F4F00333B5F /* Build configuration list for PBXNativeTarget "Y86 Emulator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8AFF77C11D494DD600333B5F /* Debug */,
-				8AFF77C21D494DD600333B5F /* Release */,
+				8AFF77D91D494F4F00333B5F /* Debug */,
+				8AFF77DA1D494F4F00333B5F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 8AFF77B11D494DD500333B5F /* Project object */;
+	rootObject = 8AFF77C91D494F4F00333B5F /* Project object */;
 }

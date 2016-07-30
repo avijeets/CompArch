@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:y86 emulator.xcodeproj">
+      location = "self:Y86 Emulator.xcodeproj">
    </FileRef>
 </Workspace>

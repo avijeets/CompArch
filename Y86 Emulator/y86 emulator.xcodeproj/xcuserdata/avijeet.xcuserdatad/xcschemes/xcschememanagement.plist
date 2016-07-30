@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>y86 emulator.xcscheme</key>
+		<key>Y86 Emulator.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8AFF77B81D494DD500333B5F</key>
+		<key>8AFF77D01D494F4F00333B5F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

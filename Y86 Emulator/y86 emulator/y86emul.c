@@ -12,22 +12,41 @@ int text = 0, line = 2, size = 0;
 
 /*Performs a registry to registry move*/
 void rrmovl() {
-	/**** fill your code here ****/
-
-
-
+    eip++;
+    bitfield *new = (bitfield *)(emem + eip);
+    int lower, higher;
+    lower = new->low;
+    higher = new->high;
+    if ((lower >= 0 && lower <= 7) && (higher >= 0 && higher <= 7)) {
+        reg[higher] = reg [lower];
+    }
+    else {
+        fprintf(stderr, "Not valid register.\n");
+        exit(0);
+    }
+    eip++;
 	return;
 }
 
 /*Performs an immediate to registry move*/
 void irmovl() {
-	/**** fill your code here ****/
+    eip++;
+    bitfield *new = (bitfield *)(emem + eip);
+    int i;
+    i = new->high;
+    if ((new->low == 15) && (i >= 0 && i <= 7)) {
+        int *numPtr = (int *)(emem + eip + 1);
+        reg[i] = *numPtr;
+    }
+    else {
+        fprintf(stderr,"Not valid register.\n");
+        exit(0);
+    }
 
-
-
+    eip += 5;
 	return;
 }
-
+   
 /*Performs a registry to memory move*/
 void rmmovl() {
 	/**** fill your code here ****/
