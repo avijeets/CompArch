@@ -1,4 +1,4 @@
-#Tokenizer: PA1
+#Tokenizer
 
 ###Description
 - This program accepts strings, which contains a file name, as a command-line argument. The file name contains one or more tokens of type floating-point, constant, or integer constant in hex/decimal/octal form.
